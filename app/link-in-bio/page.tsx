@@ -38,7 +38,7 @@ export default function LinkInBioPage() {
               />
               <LinkBioButton
                 variant="tiktok"
-                title="🎵 Me siga no TikTok para doses diárias de clareza afetiva"
+                title="🎵 Siga nosso perfil no TikTok para doses diárias de clareza afetiva"
                 href={LINKS.tiktok}
               />
               <LinkBioButton
