@@ -5,14 +5,13 @@ import Container from "@/components/ui/Container"
 import Section from "@/components/ui/Section"
 
 /**
- * Testimonials carousel.
+ * Depoimentos para a landing de vendas — carrossel horizontal
+ * com scroll-snap + dot indicator. Reutiliza os 5 depoimentos exatos
+ * das personas (Carla, Renata, Fernanda, Juliana, Patricia) que
+ * também aparecem no link-in-bio.
  *
- * Horizontal scroll-snap (CSS-only animation) + client-side tracking
- * of the active index for a dot indicator. Client island because we
- * read scroll position; the cards themselves are static markup.
- *
- * All quotes and names are user-content placeholders, to be filled
- * with real followers of @analiseafetiva post-implementation.
+ * Client island porque precisamos ler scrollLeft para atualizar o
+ * dot ativo — os cards em si são estáticos.
  */
 
 type Depoimento = { quote: string; name: string }
@@ -45,18 +44,16 @@ const DEPOIMENTOS: Depoimento[] = [
   },
 ]
 
-export default function Depoimentos() {
+export default function DepoimentosSales() {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(0)
 
   function handleScroll() {
     const el = scrollerRef.current
     if (!el) return
-    // Each card has the same width (snap-center), so:
-    // active index ≈ round(scrollLeft / cardWidth)
     const firstCard = el.querySelector<HTMLElement>("[data-dep-card]")
     if (!firstCard) return
-    const cardWidth = firstCard.offsetWidth + 16 // + gap-4
+    const cardWidth = firstCard.offsetWidth + 16
     const idx = Math.round(el.scrollLeft / cardWidth)
     if (idx !== active && idx >= 0 && idx < DEPOIMENTOS.length) {
       setActive(idx)
@@ -64,16 +61,20 @@ export default function Depoimentos() {
   }
 
   return (
-    <Section bg="charcoal">
+    <Section bg="charcoal" id="depoimentos">
       <Container>
-        <div className="mb-10 text-center md:mb-14">
-          <h2 className="font-editorial text-[28px] font-semibold text-linen md:text-[40px]">
-            Elas entenderam o próprio código
+        <div className="mb-12 text-center md:mb-16">
+          <span className="mb-3 block font-body text-[11px] font-bold uppercase tracking-[0.2em] text-terracota">
+            Quem já leu
+          </span>
+          <h2 className="font-editorial text-[30px] font-semibold leading-[1.1] text-linen md:text-[44px]">
+            Elas entenderam o
+            <br />
+            <span className="italic text-terracota">próprio código</span>.
           </h2>
         </div>
       </Container>
 
-      {/* Scroller spans full width so cards can scroll past the container edge */}
       <div
         ref={scrollerRef}
         onScroll={handleScroll}
@@ -84,12 +85,12 @@ export default function Depoimentos() {
             <li
               key={idx}
               data-dep-card
-              className="w-[85vw] max-w-[340px] shrink-0 snap-center rounded-lg border-l-[3px] border-l-terracota bg-dark-card p-6 md:w-[45vw] md:max-w-[420px] lg:w-[30vw]"
+              className="flex w-[85vw] max-w-[360px] shrink-0 snap-center flex-col justify-between rounded-lg border-l-[3px] border-l-terracota bg-dark-card p-7 md:w-[46vw] md:max-w-[460px] lg:w-[32vw]"
             >
-              <p className="font-editorial text-lg italic leading-relaxed text-sand">
-                {d.quote}
+              <p className="font-editorial text-lg italic leading-relaxed text-sand md:text-xl">
+                “{d.quote}”
               </p>
-              <p className="mt-4 font-body text-xs font-bold uppercase tracking-[0.15em] text-terracota">
+              <p className="mt-6 font-body text-xs font-bold uppercase tracking-[0.15em] text-terracota">
                 {d.name}
               </p>
             </li>
@@ -97,9 +98,11 @@ export default function Depoimentos() {
         </ul>
       </div>
 
-      {/* Position indicator */}
       <Container>
-        <div className="mt-6 flex justify-center gap-2" aria-hidden="true">
+        <div
+          className="mt-8 flex justify-center gap-2"
+          aria-hidden="true"
+        >
           {DEPOIMENTOS.map((_, idx) => (
             <span
               key={idx}

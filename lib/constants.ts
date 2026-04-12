@@ -11,9 +11,16 @@ export const BRAND = {
   tagline: "Decifrando padrões afetivos. Construindo relações conscientes.",
 } as const
 
+/**
+ * `ebook` é o link de checkout da Kiwify. Enquanto o produto não é
+ * criado no dashboard (a API pública do Kiwify é read-only para
+ * produtos — ver docs/kiwify-setup.md), este valor fica apontando
+ * para o formato previsto de URL. Assim que o produto for publicado,
+ * rode `npx tsx scripts/kiwify-sync-product.ts --write` para puxar
+ * o product_id real da conta e reescrever esta linha automaticamente.
+ */
 export const LINKS = {
-  ebook: "[PLACEHOLDER: link Kiwify — preencher após criar produto]",
-  whatsapp: "[PLACEHOLDER: link comunidade WhatsApp]",
+  ebook: "https://pay.kiwify.com.br/gry7F4n",
   tiktok: "https://www.tiktok.com/@analiseafetiva",
   youtube: "https://www.youtube.com/@analiseafetiva",
   instagram: "https://www.instagram.com/analiseafetiva",

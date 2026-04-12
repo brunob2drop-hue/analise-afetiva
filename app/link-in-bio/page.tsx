@@ -13,8 +13,7 @@ import { LINKS } from "@/lib/constants"
 
 export const metadata: Metadata = {
   title: "Links",
-  description:
-    "Hub oficial Analise Afetiva — ebook, comunidade, TikTok e YouTube.",
+  description: "Hub oficial Analise Afetiva — ebook, TikTok e YouTube.",
 }
 
 /**
@@ -34,28 +33,17 @@ export default function LinkInBioPage() {
             <LinkBioStack>
               <LinkBioButton
                 variant="ebook"
-                title="O Código da Repetição"
-                subtitle="Por que você aceita o amor que acha que merece?"
+                title="Descubra por que você repete os mesmos padrões no amor →"
                 href={LINKS.ebook}
-                priceBadge="R$ 19,90"
-                floatingBadge="🔥 Mais vendido"
-              />
-              <LinkBioButton
-                variant="whatsapp"
-                title="Comunidade Analise Afetiva"
-                subtitle="Insights e geração de valor — Gratuito"
-                href={LINKS.whatsapp}
               />
               <LinkBioButton
                 variant="tiktok"
-                title="@analiseafetiva"
-                subtitle="Conteúdo diário sobre padrões afetivos"
+                title="🎵 Me siga no TikTok"
                 href={LINKS.tiktok}
               />
               <LinkBioButton
                 variant="youtube"
-                title="Canal no YouTube"
-                subtitle="Vídeos longos sobre relacionamentos"
+                title="▶️ Canal no YouTube Shorts"
                 href={LINKS.youtube}
               />
             </LinkBioStack>

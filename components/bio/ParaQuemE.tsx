@@ -15,20 +15,19 @@ type Trigger = { title: string; description: string }
 
 const TRIGGERS: Trigger[] = [
   {
-    // TODO: preencher com gatilho real — ex: "Você repete o mesmo filme?"
-    title: "[PLACEHOLDER: Gatilho emocional #1 — título]",
+    title: "Você resolve tudo — menos isso.",
     description:
-      "[PLACEHOLDER: Descrição do primeiro perfil de leitora — 2 a 3 linhas]",
+      "Você lidera times, fecha contratos, carrega uma casa. Mas, quando olha para seus relacionamentos, encontra o mesmo roteiro repetido. A dor não é falta de inteligência. É um código que ninguém te ensinou a ler.",
   },
   {
-    title: "[PLACEHOLDER: Gatilho emocional #2 — título]",
+    title: "Você atrai exatamente quem não pode ficar.",
     description:
-      "[PLACEHOLDER: Descrição do segundo perfil de leitora — 2 a 3 linhas]",
+      "Os homens mudam, as histórias se parecem. Indisponíveis, ocupados, ambíguos. Você já desconfiou que o problema não são eles — é o sinal silencioso que você emite sem perceber. Esse sinal tem origem, e tem tradução.",
   },
   {
-    title: "[PLACEHOLDER: Gatilho emocional #3 — título]",
+    title: "Você tem medo do que está ensinando sem querer.",
     description:
-      "[PLACEHOLDER: Descrição do terceiro perfil de leitora — 2 a 3 linhas]",
+      "Seja para seus filhos, para você mesma ou para a mulher que você quer voltar a ser, existe um ciclo que começa antes de você e continua depois. Quebrar esse ciclo é o trabalho mais íntimo — e mais definitivo — que existe.",
   },
 ]
 

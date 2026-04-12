@@ -1,15 +1,13 @@
 import { cn } from "@/lib/utils"
 import { isPlaceholder } from "@/lib/constants"
 
-type LinkBioVariant = "ebook" | "whatsapp" | "tiktok" | "youtube"
+type LinkBioVariant = "ebook" | "tiktok" | "youtube"
 
 type LinkBioButtonProps = {
   variant: LinkBioVariant
   title: string
-  subtitle: string
+  subtitle?: string
   href: string
-  priceBadge?: string
-  floatingBadge?: string
 }
 
 /**
@@ -54,31 +52,6 @@ function EbookIcon() {
       <line x1="24" y1="12" x2="30" y2="12" stroke="#B89070" strokeWidth="1.25" strokeLinecap="round" />
       <line x1="24" y1="16" x2="30" y2="16" stroke="#B89070" strokeWidth="1.25" strokeLinecap="round" />
       <line x1="24" y1="20" x2="28" y2="20" stroke="#B89070" strokeWidth="1.25" strokeLinecap="round" />
-    </svg>
-  )
-}
-
-function WhatsappIcon() {
-  return (
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <circle cx="20" cy="20" r="18" stroke="#128C7E" strokeWidth="1.5" />
-      <path
-        d="M20 28 C 16 28, 13 25, 13 21 C 13 17, 16 14, 20 14 C 24 14, 27 17, 27 21 C 27 22.5, 26.5 23.9, 25.7 25 L 27 29 L 22.8 27.4 C 21.9 27.8, 21 28, 20 28 Z"
-        stroke="#128C7E"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M20 12.5 C 18 10, 15 10.5, 15 13 C 15 15, 17 16.5, 20 18 C 23 16.5, 25 15, 25 13 C 25 10.5, 22 10, 20 12.5 Z"
-        fill="#B89070"
-      />
     </svg>
   )
 }
@@ -146,28 +119,6 @@ function ArrowRightIcon({ color }: { color: string }) {
   )
 }
 
-function WhatsappRightMark() {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M12 2 C 6.5 2, 2 6.5, 2 12 C 2 13.8, 2.5 15.5, 3.3 17 L 2 22 L 7.2 20.7 C 8.7 21.4, 10.3 21.8, 12 21.8 C 17.5 21.8, 22 17.3, 22 12 C 22 6.5, 17.5 2, 12 2 Z"
-        fill="#128C7E"
-      />
-      <path
-        d="M16.5 14.5 C 16.3 14.4, 15.4 14, 15.2 13.9 C 15 13.8, 14.9 13.8, 14.7 14 C 14.6 14.1, 14.2 14.6, 14.1 14.7 C 14 14.8, 13.9 14.8, 13.7 14.7 C 13.5 14.6, 12.8 14.4, 12 13.7 C 11.4 13.2, 11 12.5, 10.9 12.3 C 10.8 12.1, 10.9 12, 11 11.9 C 11.1 11.8, 11.2 11.7, 11.3 11.5 C 11.4 11.4, 11.4 11.3, 11.5 11.1 C 11.5 11, 11.5 10.9, 11.5 10.8 C 11.4 10.7, 11 9.8, 10.9 9.5 C 10.7 9.2, 10.6 9.2, 10.5 9.2 C 10.4 9.2, 10.3 9.2, 10.1 9.2 C 10 9.2, 9.8 9.3, 9.6 9.5 C 9.4 9.7, 8.9 10.2, 8.9 11.1 C 8.9 12.1, 9.6 13, 9.7 13.1 C 9.8 13.2, 11 15.1, 12.9 15.9 C 13.4 16.1, 13.7 16.2, 14 16.3 C 14.4 16.4, 14.8 16.4, 15.1 16.3 C 15.4 16.3, 16.1 15.9, 16.3 15.4 C 16.5 15, 16.5 14.6, 16.4 14.5 C 16.4 14.5, 16.4 14.5, 16.5 14.5 Z"
-        fill="#F7F3EE"
-      />
-    </svg>
-  )
-}
-
 function YoutubeRightMark() {
   return (
     <svg
@@ -205,13 +156,6 @@ const VARIANTS: Record<LinkBioVariant, VariantConfig> = {
     leftIcon: <EbookIcon />,
     rightIcon: <ArrowRightIcon color="#B89070" />,
   },
-  whatsapp: {
-    shell: "bg-linen border border-sand",
-    titleClass: "font-editorial font-medium text-charcoal",
-    subtitleClass: "font-body text-brown",
-    leftIcon: <WhatsappIcon />,
-    rightIcon: <WhatsappRightMark />,
-  },
   tiktok: {
     shell: "bg-charcoal",
     titleClass: "font-body font-bold text-linen",
@@ -237,8 +181,6 @@ export default function LinkBioButton({
   title,
   subtitle,
   href,
-  priceBadge,
-  floatingBadge,
 }: LinkBioButtonProps) {
   const config = VARIANTS[variant]
   const isPH = isPlaceholder(href)
@@ -246,39 +188,29 @@ export default function LinkBioButton({
   const isExternal = !isPH
 
   return (
-    <div className="relative">
-      {floatingBadge && (
-        <span className="badge-pulse absolute -top-2 -right-2 z-10 rounded-full bg-terracota px-3 py-1 font-body text-xs font-bold text-charcoal">
-          {floatingBadge}
-        </span>
+    <a
+      href={safeHref}
+      data-placeholder={isPH ? "true" : undefined}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      className={cn(
+        "flex min-h-[72px] w-full items-center gap-4 rounded-xl p-4",
+        "transition-all duration-200 hover:-translate-y-[2px] hover:shadow-lg",
+        config.shell
       )}
-      <a
-        href={safeHref}
-        data-placeholder={isPH ? "true" : undefined}
-        target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noopener noreferrer" : undefined}
-        className={cn(
-          "flex min-h-[72px] w-full items-center gap-4 rounded-xl p-4",
-          "transition-all duration-200 hover:-translate-y-[2px] hover:shadow-lg",
-          config.shell
-        )}
-      >
-        <div className="shrink-0">{config.leftIcon}</div>
-        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-          <span className={cn("text-lg leading-tight", config.titleClass)}>
-            {title}
-          </span>
+    >
+      <div className="shrink-0">{config.leftIcon}</div>
+      <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+        <span className={cn("text-lg leading-tight", config.titleClass)}>
+          {title}
+        </span>
+        {subtitle && (
           <span className={cn("text-xs leading-snug", config.subtitleClass)}>
             {subtitle}
           </span>
-        </div>
-        {priceBadge && (
-          <span className="shrink-0 rounded-md bg-terracota px-3 py-1 font-body text-sm font-bold text-charcoal">
-            {priceBadge}
-          </span>
         )}
-        <div className="shrink-0">{config.rightIcon}</div>
-      </a>
-    </div>
+      </div>
+      <div className="shrink-0">{config.rightIcon}</div>
+    </a>
   )
 }
