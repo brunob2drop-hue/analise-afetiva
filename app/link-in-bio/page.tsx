@@ -38,12 +38,12 @@ export default function LinkInBioPage() {
               />
               <LinkBioButton
                 variant="tiktok"
-                title="🎵 Me siga no TikTok"
+                title="🎵 Me siga no TikTok para doses diárias de clareza afetiva"
                 href={LINKS.tiktok}
               />
               <LinkBioButton
                 variant="youtube"
-                title="▶️ Canal no YouTube Shorts"
+                title="▶️ Aulas curtas no YouTube Shorts sobre o Código da Repetição"
                 href={LINKS.youtube}
               />
             </LinkBioStack>
