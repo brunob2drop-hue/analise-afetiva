@@ -119,22 +119,6 @@ function ArrowRightIcon({ color }: { color: string }) {
   )
 }
 
-function YoutubeRightMark() {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <rect x="2" y="5" width="20" height="14" rx="3" fill="#FF0000" />
-      <path d="M10 9 L 16 12 L 10 15 Z" fill="#FFFFFF" />
-    </svg>
-  )
-}
-
 /* ============================================================
  * Variant configuration
  * ============================================================ */
@@ -147,28 +131,34 @@ type VariantConfig = {
   rightIcon: React.ReactNode
 }
 
+const sharedShell =
+  "bg-gradient-to-br from-charcoal to-dark-card border border-terracota"
+
+const sharedTitleClass = "font-editorial font-semibold text-linen"
+const sharedSubtitleClass = "font-body text-sand/80"
+const sharedRightIcon = <ArrowRightIcon color="#B89070" />
+
 const VARIANTS: Record<LinkBioVariant, VariantConfig> = {
   ebook: {
-    shell:
-      "bg-gradient-to-br from-charcoal to-dark-card border border-terracota",
-    titleClass: "font-editorial font-semibold text-linen",
-    subtitleClass: "font-body text-sand/80",
+    shell: sharedShell,
+    titleClass: sharedTitleClass,
+    subtitleClass: sharedSubtitleClass,
     leftIcon: <EbookIcon />,
-    rightIcon: <ArrowRightIcon color="#B89070" />,
+    rightIcon: sharedRightIcon,
   },
   tiktok: {
-    shell: "bg-charcoal",
-    titleClass: "font-body font-bold text-linen",
-    subtitleClass: "font-body text-sand/70",
+    shell: sharedShell,
+    titleClass: sharedTitleClass,
+    subtitleClass: sharedSubtitleClass,
     leftIcon: <TiktokIcon />,
-    rightIcon: <ArrowRightIcon color="#B89070" />,
+    rightIcon: sharedRightIcon,
   },
   youtube: {
-    shell: "bg-linen border border-sand",
-    titleClass: "font-editorial font-medium text-charcoal",
-    subtitleClass: "font-body text-brown",
+    shell: sharedShell,
+    titleClass: sharedTitleClass,
+    subtitleClass: sharedSubtitleClass,
     leftIcon: <YoutubeIcon />,
-    rightIcon: <YoutubeRightMark />,
+    rightIcon: sharedRightIcon,
   },
 }
 
