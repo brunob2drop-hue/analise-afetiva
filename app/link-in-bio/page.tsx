@@ -33,7 +33,7 @@ export default function LinkInBioPage() {
             <LinkBioStack>
               <LinkBioButton
                 variant="ebook"
-                title="Descubra por que você repete os mesmos padrões no amor →"
+                title="❤️ Descubra por que você repete os mesmos padrões no amor →"
                 href={LINKS.ebook}
               />
               <LinkBioButton
