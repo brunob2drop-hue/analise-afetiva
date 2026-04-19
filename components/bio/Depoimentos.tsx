@@ -1,19 +1,7 @@
 "use client"
-
 import { useRef, useState } from "react"
 import Container from "@/components/ui/Container"
 import Section from "@/components/ui/Section"
-
-/**
- * Testimonials carousel.
- *
- * Horizontal scroll-snap (CSS-only animation) + client-side tracking
- * of the active index for a dot indicator. Client island because we
- * read scroll position; the cards themselves are static markup.
- *
- * All quotes and names are user-content placeholders, to be filled
- * with real followers of @analiseafetiva post-implementation.
- */
 
 type Depoimento = { quote: string; name: string }
 
@@ -52,11 +40,9 @@ export default function Depoimentos() {
   function handleScroll() {
     const el = scrollerRef.current
     if (!el) return
-    // Each card has the same width (snap-center), so:
-    // active index ≈ round(scrollLeft / cardWidth)
     const firstCard = el.querySelector<HTMLElement>("[data-dep-card]")
     if (!firstCard) return
-    const cardWidth = firstCard.offsetWidth + 16 // + gap-4
+    const cardWidth = firstCard.offsetWidth + 16
     const idx = Math.round(el.scrollLeft / cardWidth)
     if (idx !== active && idx >= 0 && idx < DEPOIMENTOS.length) {
       setActive(idx)
@@ -64,52 +50,41 @@ export default function Depoimentos() {
   }
 
   return (
-    <Section bg="charcoal">
+    <Section>
       <Container>
-        <div className="mb-10 text-center md:mb-14">
-          <h2 className="font-editorial text-[28px] font-semibold text-linen md:text-[40px]">
-            Elas entenderam o próprio código
-          </h2>
-        </div>
+        <h2 className="font-serif text-2xl text-center mb-8">
+          Elas entenderam o próprio código
+        </h2>
       </Container>
 
-      {/* Scroller spans full width so cards can scroll past the container edge */}
       <div
         ref={scrollerRef}
         onScroll={handleScroll}
-        className="snap-x snap-mandatory overflow-x-auto scroll-smooth pb-4"
+        className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-4 pb-4 scrollbar-hide"
+        style={{ WebkitOverflowScrolling: "touch" }}
       >
-        <ul className="flex w-max gap-4 px-6 md:px-10">
-          {DEPOIMENTOS.map((d, idx) => (
-            <li
-              key={idx}
-              data-dep-card
-              className="w-[85vw] max-w-[340px] shrink-0 snap-center rounded-lg border-l-[3px] border-l-terracota bg-dark-card p-6 md:w-[45vw] md:max-w-[420px] lg:w-[30vw]"
-            >
-              <p className="font-editorial text-lg italic leading-relaxed text-sand">
-                {d.quote}
-              </p>
-              <p className="mt-4 font-body text-xs font-bold uppercase tracking-[0.15em] text-terracota">
-                {d.name}
-              </p>
-            </li>
-          ))}
-        </ul>
+        {DEPOIMENTOS.map((d, idx) => (
+          <li
+            key={idx}
+            data-dep-card
+            className="list-none snap-center shrink-0 w-[min(320px,80vw)] bg-surface rounded-xl p-6 flex flex-col gap-4"
+          >
+            <p className="font-sans text-sm text-muted leading-relaxed">{d.quote}</p>
+            <p className="font-sans text-xs text-faint">{d.name}</p>
+          </li>
+        ))}
       </div>
 
-      {/* Position indicator */}
-      <Container>
-        <div className="mt-6 flex justify-center gap-2" aria-hidden="true">
-          {DEPOIMENTOS.map((_, idx) => (
-            <span
-              key={idx}
-              className={`h-1.5 rounded-full transition-all duration-200 ${
-                idx === active ? "w-6 bg-terracota" : "w-1.5 bg-sand/40"
-              }`}
-            />
-          ))}
-        </div>
-      </Container>
+      <div className="flex justify-center gap-2 mt-4">
+        {DEPOIMENTOS.map((_, idx) => (
+          <span
+            key={idx}
+            className={`block w-1.5 h-1.5 rounded-full transition-colors ${
+              idx === active ? "bg-terracota" : "bg-divider"
+            }`}
+          />
+        ))}
+      </div>
     </Section>
   )
 }
