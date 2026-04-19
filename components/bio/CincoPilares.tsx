@@ -1,6 +1,12 @@
 import Container from "@/components/ui/Container"
 import Section from "@/components/ui/Section"
 
+/**
+ * "Os 5 Pilares do Código da Repetição" — editorial numbered list.
+ * Big terracota numbers in Cormorant + serif title + sans description.
+ * All 5 titles and descriptions are user-content placeholders.
+ */
+
 type Pilar = { title: string; description: string }
 
 const PILARES: Pilar[] = [
@@ -33,31 +39,32 @@ const PILARES: Pilar[] = [
 
 export default function CincoPilares() {
   return (
-    <Section>
+    <Section bg="linen">
       <Container>
-        <h2 className="font-serif text-2xl text-center mb-8 leading-tight">
-          Os{" "}
-          <span
-            style={{
-              display: "inline-block",
-              verticalAlign: "middle",
-              lineHeight: 1,
-            }}
-          >
-            5
-          </span>{" "}
-          Pilares do Código da Repetição
-        </h2>
-
-        <ol className="space-y-8">
+        <div className="mb-12 text-center md:mb-16">
+          <h2 className="font-editorial text-[28px] font-semibold text-charcoal md:text-[40px]">
+            Os 5 Pilares do Código da Repetição
+          </h2>
+        </div>
+        <ol className="flex flex-col gap-12 md:gap-16">
           {PILARES.map((p, idx) => (
-            <li key={idx} className="flex gap-4 items-start">
-              <span className="font-serif text-4xl leading-none text-terracota shrink-0">
+            <li
+              key={idx}
+              className="mx-auto flex w-full max-w-[60ch] flex-col items-start gap-3 md:flex-row md:items-baseline md:gap-8"
+            >
+              <span
+                className="font-editorial text-[56px] font-semibold leading-none text-terracota md:text-[72px]"
+                aria-hidden="true"
+              >
                 {String(idx + 1).padStart(2, "0")}
               </span>
-              <div>
-                <h3 className="font-serif text-lg mb-1">{p.title}</h3>
-                <p className="font-sans text-sm text-muted">{p.description}</p>
+              <div className="flex flex-col gap-2">
+                <h3 className="font-editorial text-2xl font-medium text-charcoal md:text-3xl">
+                  {p.title}
+                </h3>
+                <p className="font-body text-base text-brown/80">
+                  {p.description}
+                </p>
               </div>
             </li>
           ))}
