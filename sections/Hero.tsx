@@ -51,53 +51,53 @@ export default function Hero() {
                 reescrever a frase que dirige tudo.
               </p>
 
-              <div className="flex flex-col items-start gap-3">
+              <div className="flex flex-col items-start gap-2.5">
                 <AnimatedButton href={LINKS.ebook} external size="lg">
-                  Quero decifrar meu código — R$ 19,90
+                  Quero decifrar meu código
                 </AnimatedButton>
-                <p className="font-body text-xs text-brown/60">
+                <p className="font-body text-xs tracking-[0.03em] text-brown/60">
                   Acesso imediato · 7 dias de garantia · Pagamento único
                 </p>
               </div>
 
               {/* Selos de confiança */}
-              <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-brown/10 pt-6">
-                <div className="flex items-center gap-2">
+              <div className="mt-2 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-brown/10 pt-5">
+                <div className="flex items-center gap-2.5">
                   <span
                     aria-hidden="true"
-                    className="font-editorial text-2xl font-semibold text-terracota"
+                    className="lining-nums font-editorial text-[26px] font-semibold leading-none text-terracota"
                   >
                     5
                   </span>
-                  <span className="font-body text-xs leading-tight text-brown/70">
+                  <span className="font-body text-[11px] leading-[1.25] text-brown/65">
                     Pilares
                     <br />
                     aplicados
                   </span>
                 </div>
-                <span className="h-8 w-px bg-brown/15" aria-hidden="true" />
-                <div className="flex items-center gap-2">
+                <span className="h-6 w-px bg-brown/10" aria-hidden="true" />
+                <div className="flex items-center gap-2.5">
                   <span
                     aria-hidden="true"
-                    className="font-editorial text-2xl font-semibold text-terracota"
+                    className="lining-nums font-editorial text-[26px] font-semibold leading-none text-terracota"
                   >
                     2
                   </span>
-                  <span className="font-body text-xs leading-tight text-brown/70">
+                  <span className="font-body text-[11px] leading-[1.25] text-brown/65">
                     Bônus
                     <br />
                     inclusos
                   </span>
                 </div>
-                <span className="h-8 w-px bg-brown/15" aria-hidden="true" />
-                <div className="flex items-center gap-2">
+                <span className="h-6 w-px bg-brown/10" aria-hidden="true" />
+                <div className="flex items-center gap-2.5">
                   <span
                     aria-hidden="true"
-                    className="font-editorial text-2xl font-semibold text-terracota"
+                    className="lining-nums font-editorial text-[26px] font-semibold leading-none text-terracota"
                   >
                     7
                   </span>
-                  <span className="font-body text-xs leading-tight text-brown/70">
+                  <span className="font-body text-[11px] leading-[1.25] text-brown/65">
                     Dias de
                     <br />
                     garantia

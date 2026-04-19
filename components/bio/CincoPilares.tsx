@@ -42,7 +42,7 @@ export default function CincoPilares() {
     <Section bg="linen">
       <Container>
         <div className="mb-12 text-center md:mb-16">
-          <h2 className="font-editorial text-[28px] font-semibold text-charcoal md:text-[40px]">
+          <h2 className="font-editorial text-[28px] font-semibold italic text-charcoal md:text-[40px]">
             Os 5 Pilares do Código da Repetição
           </h2>
         </div>

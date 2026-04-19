@@ -12,14 +12,17 @@ function GuaranteeSeal() {
   return (
     <div className="relative h-[180px] w-[180px] md:h-[220px] md:w-[220px]">
       <div className="absolute inset-0 rounded-full bg-terracota/15 blur-2xl" />
-      <div className="relative flex h-full w-full flex-col items-center justify-center gap-1 rounded-full border-2 border-terracota bg-dark-card text-center">
-        <span className="font-body text-[9px] font-bold uppercase tracking-[0.2em] text-terracota">
+      <div className="relative flex h-full w-full flex-col items-center justify-center rounded-full border-2 border-terracota bg-dark-card text-center" style={{ gap: '3px' }}>
+        <span className="font-body text-[9px] font-bold uppercase tracking-[0.24em] text-terracota">
           Garantia
         </span>
-        <span className="font-editorial text-[72px] font-semibold leading-none text-terracota md:text-[92px]">
+        <span
+          className="lining-nums font-editorial text-[66px] font-semibold leading-none text-terracota md:text-[84px]"
+          style={{ transform: 'translateY(-2px)' }}
+        >
           7
         </span>
-        <span className="font-body text-[9px] font-bold uppercase tracking-[0.2em] text-terracota">
+        <span className="font-body text-[10px] font-bold uppercase tracking-[0.24em] text-terracota">
           dias
         </span>
       </div>

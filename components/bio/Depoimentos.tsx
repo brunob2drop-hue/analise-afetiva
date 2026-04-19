@@ -67,7 +67,7 @@ export default function Depoimentos() {
     <Section bg="charcoal">
       <Container>
         <div className="mb-10 text-center md:mb-14">
-          <h2 className="font-editorial text-[28px] font-semibold text-linen md:text-[40px]">
+          <h2 className="font-editorial text-[28px] font-semibold italic text-linen md:text-[40px]">
             Elas entenderam o próprio código
           </h2>
         </div>
@@ -84,7 +84,7 @@ export default function Depoimentos() {
             <li
               key={idx}
               data-dep-card
-              className="w-[85vw] max-w-[340px] shrink-0 snap-center rounded-lg border-l-[3px] border-l-terracota bg-dark-card p-6 md:w-[45vw] md:max-w-[420px] lg:w-[30vw]"
+              className="w-[85vw] max-w-[340px] shrink-0 snap-center rounded-[3px] border-l-[3px] border-l-terracota bg-dark-card p-6 md:w-[45vw] md:max-w-[420px] lg:w-[30vw]"
             >
               <p className="font-editorial text-lg italic leading-relaxed text-sand">
                 {d.quote}

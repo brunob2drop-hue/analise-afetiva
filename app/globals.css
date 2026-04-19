@@ -15,6 +15,12 @@
   --color-brown:      #4A3728;
   --color-dark-card:  #2A2018;
 
+  --color-cta:        #7A4E3A;
+  --color-cta-hover:  #684030;
+  --color-surface:    #EFE7DE;
+  --color-muted:      #6B5A4D;
+  --color-border:     #D9C9BC;
+
   --font-editorial:   var(--font-cormorant), ui-serif, Georgia, serif;
   --font-body:        var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
 }

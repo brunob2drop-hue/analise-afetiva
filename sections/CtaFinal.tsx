@@ -36,7 +36,7 @@ export default function CtaFinal() {
 
             <div className="mt-2 flex flex-col items-center gap-3">
               <AnimatedButton href={LINKS.ebook} external size="lg">
-                Quero começar agora — R$ 19,90
+                Quero começar agora →
               </AnimatedButton>
               <p className="font-body text-xs text-sand/60">
                 Acesso imediato · 7 dias de garantia · Pagamento único

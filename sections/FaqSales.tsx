@@ -56,14 +56,14 @@ export default function FaqSales() {
           <ul className="flex flex-col divide-y divide-brown/15 border-y border-brown/15">
             {FAQS.map((f, i) => (
               <li key={i}>
-                <details className="group py-6">
+                <details className="group py-5 md:py-6">
                   <summary className="flex cursor-pointer items-start justify-between gap-6 list-none [&::-webkit-details-marker]:hidden">
                     <h3 className="font-editorial text-lg font-medium text-charcoal md:text-xl">
                       {f.q}
                     </h3>
                     <span
                       aria-hidden="true"
-                      className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-terracota text-terracota transition-transform duration-200 group-open:rotate-45"
+                      className="mt-0.5 flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full border border-terracota/70 text-terracota transition-transform duration-200 group-open:rotate-45"
                     >
                       <svg
                         width="10"

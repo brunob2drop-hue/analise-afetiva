@@ -58,7 +58,7 @@ export default function OQueE() {
             <FadeIn key={i} delay={i * 0.08}>
               <Card
                 variant="dark"
-                className="flex h-full flex-col gap-4 border border-terracota/15"
+                className="flex h-full flex-col gap-5 border border-terracota/10 p-8"
               >
                 <span className="font-body text-[10px] font-bold uppercase tracking-[0.22em] text-terracota">
                   {it.kicker}

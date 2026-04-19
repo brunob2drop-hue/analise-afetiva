@@ -64,7 +64,7 @@ export default function Oferta() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="mx-auto max-w-[820px] overflow-hidden rounded-2xl border-2 border-terracota bg-linen shadow-[0_40px_80px_-30px_rgba(26,20,16,0.35)]">
+          <div className="mx-auto max-w-[820px] overflow-hidden rounded-2xl border border-terracota/60 bg-linen shadow-[0_40px_80px_-30px_rgba(26,20,16,0.30)]">
             {/* Header do card: capa + preço */}
             <div className="grid gap-8 border-b border-brown/10 p-8 md:grid-cols-[auto_1fr] md:items-center md:gap-10 md:p-12">
               <div className="flex items-center justify-center">
@@ -76,18 +76,19 @@ export default function Oferta() {
                   Oferta de lançamento
                 </span>
 
-                <div className="flex flex-col gap-1">
-                  <span className="font-body text-sm text-brown/60 line-through">
+                <div className="flex flex-col gap-2">
+                  <span className="font-body text-xs text-brown/50 line-through">
                     De {VALOR_DE}
                   </span>
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-body text-sm text-brown/70">
-                      por apenas
+                  <p className="font-body text-[10px] uppercase tracking-[0.14em] text-brown/60">
+                    por apenas
+                  </p>
+                  <div className="flex items-baseline gap-1 leading-none">
+                    <span className="font-editorial text-[20px] font-medium text-charcoal/75">
+                      R$
                     </span>
-                  </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-editorial text-[56px] font-semibold leading-none text-charcoal md:text-[72px]">
-                      {VALOR_POR}
+                    <span className="font-editorial text-[56px] font-semibold leading-none text-charcoal md:text-[68px]">
+                      19,90
                     </span>
                   </div>
                   <span className="font-body text-xs text-brown/60">
@@ -140,13 +141,14 @@ export default function Oferta() {
                     </div>
                   </li>
                 ))}
-                <li className="flex items-center justify-between pt-5">
+                <li className="flex items-center justify-between border-t border-brown/15 pt-6 mt-1">
                   <span className="font-editorial text-lg font-medium text-charcoal md:text-xl">
                     Você paga hoje
                   </span>
-                  <span className="font-editorial text-2xl font-semibold text-terracota md:text-3xl">
-                    {VALOR_POR}
-                  </span>
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="font-editorial text-base font-medium text-terracota/80">R$</span>
+                    <span className="font-editorial text-2xl font-semibold text-terracota md:text-3xl">19,90</span>
+                  </div>
                 </li>
               </ul>
             </div>

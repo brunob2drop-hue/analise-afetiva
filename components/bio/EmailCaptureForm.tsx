@@ -46,11 +46,11 @@ export default function EmailCaptureForm() {
             if (status !== "idle") setStatus("idle")
           }}
           aria-label="Seu e-mail"
-          className="flex-1 rounded-full border border-sand/30 bg-transparent px-5 py-3 font-body text-sm text-linen placeholder:text-sand/50 focus:border-terracota focus:outline-none"
+          className="flex-1 rounded-[3px] border border-[#B89070]/25 bg-transparent px-5 py-3 font-body text-sm text-linen placeholder:text-sand/50 focus:border-[#B89070]/60 focus:outline-none"
         />
         <button
           type="submit"
-          className="rounded-full bg-terracota px-6 py-3 font-body text-sm font-bold text-charcoal transition-all duration-200 hover:-translate-y-[1px] hover:opacity-90"
+          className="rounded-[3px] bg-[#7A4E3A] px-6 py-3 font-body text-sm font-medium text-linen transition-all duration-200 hover:-translate-y-px hover:bg-[#684030]"
         >
           Entrar na lista
         </button>

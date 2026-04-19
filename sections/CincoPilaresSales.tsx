@@ -43,14 +43,14 @@ export default function CincoPilaresSales() {
     <Section bg="linen" id="pilares">
       <Container>
         <FadeIn>
-          <div className="mx-auto mb-14 flex max-w-[56ch] flex-col items-center gap-4 text-center md:mb-20">
-            <span className="font-body text-[11px] font-bold uppercase tracking-[0.2em] text-terracota">
+          <div className="mx-auto mb-12 flex max-w-[52ch] flex-col items-center gap-2 text-center md:mb-16">
+            <span className="font-body text-[11px] font-bold uppercase tracking-[0.22em] text-terracota">
               O conteúdo
             </span>
-            <h2 className="font-editorial text-[30px] font-semibold leading-[1.1] text-charcoal md:text-[44px]">
-              Os 5 Pilares do
+            <h2 className="font-editorial text-[30px] font-semibold leading-[1.0] text-charcoal md:text-[44px]">
+              Os <span className="relative -top-[4px]">5</span> Pilares do
               <br />
-              <span className="italic text-terracota">Código da Repetição</span>
+              <span className="italic text-terracota" style={{ display: 'block', marginTop: '-2px' }}>Código da Repetição</span>
             </h2>
           </div>
         </FadeIn>
@@ -58,23 +58,23 @@ export default function CincoPilaresSales() {
         <ol className="flex flex-col gap-14 md:gap-20">
           {PILARES.map((p, idx) => (
             <FadeIn key={idx} delay={idx * 0.05}>
-              <li className="mx-auto grid w-full max-w-[62ch] grid-cols-[auto_1fr] items-baseline gap-5 md:gap-10">
+              <li className="mx-auto grid w-full max-w-[62ch] grid-cols-[auto_1fr] items-start gap-6 md:gap-12">
                 <div className="flex flex-col items-start">
                   <span
                     aria-hidden="true"
-                    className="font-editorial text-[64px] font-semibold leading-none text-terracota md:text-[96px]"
+                    className="lining-nums tabular-nums font-editorial text-[64px] font-semibold leading-none text-terracota md:text-[96px]"
                   >
                     {String(idx + 1).padStart(2, "0")}
                   </span>
-                  <span className="mt-1 font-body text-[9px] font-bold uppercase tracking-[0.22em] text-terracota/80">
+                  <span className="mt-1.5 font-body text-[9px] font-bold uppercase tracking-[0.22em] text-terracota/80">
                     Capítulo {idx + 1}
                   </span>
                 </div>
-                <div className="flex flex-col gap-3 pt-1">
-                  <h3 className="font-editorial text-2xl font-medium leading-tight text-charcoal md:text-3xl">
+                <div className="flex flex-col gap-3 pt-2 md:pt-3">
+                  <h3 className="font-editorial text-2xl font-medium leading-[1.2] text-charcoal md:text-3xl">
                     {p.title}
                   </h3>
-                  <p className="font-body text-base leading-relaxed text-brown/80">
+                  <p className="max-w-[44ch] font-body text-base leading-[1.7] text-brown/80">
                     {p.description}
                   </p>
                 </div>

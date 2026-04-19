@@ -1,15 +1,5 @@
-import Card from "@/components/ui/Card"
 import Container from "@/components/ui/Container"
 import Section from "@/components/ui/Section"
-
-/**
- * "Para quem é" — 3 trigger cards explaining who the ebook speaks to.
- * All 3 titles and descriptions are user-content placeholders marked
- * inline, to be filled post-implementation with real emotional triggers.
- *
- * Layout: 1 col mobile, 3 col desktop. Dark background for editorial
- * contrast with the linen hero above it.
- */
 
 type Trigger = { title: string; description: string }
 
@@ -31,46 +21,34 @@ const TRIGGERS: Trigger[] = [
   },
 ]
 
-function TriggerIcon() {
-  return (
-    <svg
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <circle cx="16" cy="16" r="14" stroke="#B89070" strokeWidth="1.5" />
-      <path
-        d="M16 10 L 16 17 M 16 21 L 16 22"
-        stroke="#B89070"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  )
-}
-
 export default function ParaQuemE() {
   return (
     <Section bg="charcoal">
       <Container>
-        <div className="mb-10 text-center md:mb-14">
-          <h2 className="font-editorial text-[28px] font-semibold text-linen md:text-[40px]">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="font-editorial text-[28px] font-semibold italic text-linen md:text-[38px]">
             Para quem é
           </h2>
-        </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {TRIGGERS.map((t, idx) => (
-            <Card key={idx} variant="dark" className="flex flex-col gap-4">
-              <TriggerIcon />
-              <h3 className="font-editorial text-xl font-medium text-linen">
-                {t.title}
-              </h3>
-              <p className="font-body text-sm text-sand/80">{t.description}</p>
-            </Card>
-          ))}
+          <ol className="mt-10 flex flex-col divide-y divide-white/[0.06] md:mt-14">
+            {TRIGGERS.map((t, idx) => (
+              <li key={idx} className="flex gap-5 py-8 md:gap-8 md:py-10">
+                <span
+                  className="w-6 shrink-0 pt-1 font-editorial text-[36px] font-semibold leading-none text-[#B89070]/30 md:w-9 md:text-[44px]"
+                  aria-hidden="true"
+                >
+                  {idx + 1}
+                </span>
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="font-editorial text-[19px] font-medium leading-tight text-linen md:text-[22px]">
+                    {t.title}
+                  </h3>
+                  <p className="font-body text-[14px] leading-[1.72] text-sand/60">
+                    {t.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </Container>
     </Section>
